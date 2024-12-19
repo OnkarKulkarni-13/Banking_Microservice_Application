@@ -1,0 +1,37 @@
+services:
+  accounts:
+    image: "onkar0958/accounts:s4"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - WorldBank
+  loans:
+    image: "onkar0958/loans:s4"
+    container_name: loans-ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - WorldBank
+  cards:
+    image: "onkar0958/cards:s4"
+    container_name: cards-ms
+    ports:
+      - "9090:9090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - WorldBank
+networks:
+  eazybank:
+    driver: "bridge"
